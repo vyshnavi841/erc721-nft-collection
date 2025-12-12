@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NFT ERC-721 Smart Contract
 
 This project implements a secure, testable ERC-721 NFT smart contract with:
@@ -25,3 +26,6 @@ This project implements a secure, testable ERC-721 NFT smart contract with:
 ### Build Image
 ```bash
 docker build -t nft-contract .
+=======
+# erc721-nft-collection
+>>>>>>> 31a1fdeb052a0ce7430b7371f9c1054a20915379
