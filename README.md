@@ -1,31 +1,143 @@
-<<<<<<< HEAD
-# NFT ERC-721 Smart Contract
+ERC-721 NFT Collection – Smart Contract
 
-This project implements a secure, testable ERC-721 NFT smart contract with:
+A fully implemented ERC-721–based NFT Collection built using Solidity and Hardhat.
+This project demonstrates how NFTs are minted, transferred, approved, burned, and managed on a blockchain.
+It also includes a Docker environment so anyone can run the test suite with a single command—no setup required.
 
-- Admin-controlled minting
-- Maximum supply enforcement
-- Transfer and approval mechanics
-- Token metadata (tokenURI)
-- Optional pausing
-- Burn support
-- Full automated test suite
-- Dockerized test execution
+Features OverviewAdmin-Controlled Minting
 
----
+Only the contract owner is authorized to mint new NFTs.
 
-##  Requirements
+ Maximum Supply Limit
 
-- Docker
-- No external blockchain required
+Minting automatically stops when the maximum collection size is reached.
 
----
+ Unique Token IDs
 
-##  Run with Docker
+Every NFT is assigned a unique tokenId with ownership tracking.
 
-### Build Image
-```bash
+ Transfers
+
+NFT holders can securely transfer their tokens to other addresses.
+
+ Approvals
+
+Owners can approve another address or marketplace to manage a token on their behalf.
+
+ Metadata Support
+
+Each token returns a metadata URI in the pattern:
+
+https://baseURI/<tokenId>.json
+
+ Burn Functionality
+
+Token owners can permanently burn their NFTs.
+
+ Pause / Unpause
+
+Minting can be paused or resumed by the contract owner.
+
+ Project Structure
+contracts/
+    └── NftCollection.sol          // Main ERC-721 contract
+
+test/
+    └── NftCollection.test.js      // Full test suite covering all features
+
+Dockerfile                          // Containerized test environment
+hardhat.config.js                   // Hardhat configuration
+package.json                        // Project dependencies
+README.md                           // Documentation
+
+ How the Contract Works
+
+When deployed, the contract initializes:
+
+Collection name
+
+Symbol
+
+Maximum supply
+
+Base metadata URI
+
+Only the admin can mint NFTs.
+Each minting action:
+
+Creates a unique tokenId
+
+Assigns ownership
+
+Increases the total supply
+
+Owners may:
+
+Transfer their NFT
+
+Approve another wallet
+
+Burn their token
+
+The contract enforces:
+
+Token existence
+
+Valid ownership
+
+Correct permissions
+
+Supply limits
+
+The Hardhat test suite validates all core behaviors.
+
+▶ Running Tests Locally
+
+Install dependencies:
+
+npm install
+
+
+Run tests:
+
+npx hardhat test
+
+ Running Tests Using Docker
+
+Build the Docker image:
+
 docker build -t nft-contract .
-=======
-# erc721-nft-collection
->>>>>>> 31a1fdeb052a0ce7430b7371f9c1054a20915379
+
+
+Run the tests inside Docker:
+
+docker run nft-contract
+
+
+Docker ensures reproducibility with zero environment setup.
+
+ Technologies Used
+
+Solidity
+
+Hardhat
+
+OpenZeppelin ERC-721
+
+Node.js
+
+Docker
+
+ Why This Project Matters
+
+This project is ideal for:
+
+Learning how NFTs work under the hood
+
+Understanding the ERC-721 standard
+
+Practicing smart contract development + testing
+
+Seeing Docker-based blockchain workflows
+
+Showcasing blockchain skills to recruiters/interviewers
